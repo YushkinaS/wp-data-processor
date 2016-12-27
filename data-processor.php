@@ -4,14 +4,14 @@ class DataProcessor {
 
 	function __construct($parent) {
 
-		add_action('admin_menu', 					array($this, 'add_menu_page'));
+		add_action('admin_menu', array($this, 'add_menu_page'));
 
-		add_action('wp_ajax_dp_iteration', 			array($this, 'dp_iteration_callback'));
-		add_action('wp_ajax_nopriv_dp_iteration', 	array($this, 'dp_iteration_callback'));
+		add_action('wp_ajax_dp_iteration', array($this, 'dp_iteration_callback'));
+		add_action('wp_ajax_nopriv_dp_iteration', array($this, 'dp_iteration_callback'));
 
-		add_filter( 'heartbeat_settings', 			array($this, 'heartbeat_frequency') );
-		add_action( 'admin_enqueue_scripts', 		array($this, 'heartbeat_enqueue'));
-		add_filter( 'heartbeat_send', 				array($this, 'heartbeat_send_callback'), 10, 2 );
+		add_filter( 'heartbeat_settings', array($this, 'heartbeat_frequency') );
+		add_action( 'admin_enqueue_scripts', array($this, 'heartbeat_enqueue'));
+		add_filter( 'heartbeat_send', array($this, 'heartbeat_send_callback'), 10, 2 );
 
 		$this->user_class_instance = $parent;
 	}
